@@ -3,7 +3,7 @@ const App = () => {
   const API_URL = "https://api.balldontlie.io/v1/teams";
   const api_key = import.meta.env.VITE_API_KEY;
 
-  const [data, setData] = useState([]);
+  const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -14,9 +14,9 @@ const App = () => {
           headers: { Authorization: api_key },
         });
         if (!response.ok) throw new Error("Failed to fetch data");
-        const data = await response.json();
-        setData(data);
-        console.log(data);
+        const teams = await response.json();
+        setTeams(teams.data);
+        console.log(teams);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -29,6 +29,11 @@ const App = () => {
   return (
     <div className="container">
       <h1>NBA STATS APP</h1>
+      <div className="teams-container">
+        {teams.slice(0, 30).map((team) => (
+          <div key={team.id}>{team.name}</div>
+        ))}
+      </div>
     </div>
   );
 };

@@ -17,3 +17,17 @@ body {
   margin: 0 auto;
   padding: 1.4rem 0;
 }
+
+/* Team Section */
+
+.teams-container {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+.team {
+  border: solid white 1px;
+  height: 200px;
+  width: 200px;
+}
