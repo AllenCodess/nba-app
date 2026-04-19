@@ -21,13 +21,24 @@ body {
 /* Team Section */
 
 .teams-container {
-  margin-top: 2rem;
+  margin-top: 6rem;
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto;
+  row-gap: 3rem;
 }
 
 .team {
   border: solid white 1px;
-  height: 200px;
-  width: 200px;
+  border-radius: 20px;
+  height: 230px;
+  width: 210px;
+  text-align: center;
+}
+
+.team-name {
+  margin: 0.5rem 1rem;
+}
+
+.img-logo {
+  width: 150px;
 }

@@ -14,9 +14,9 @@ const App = () => {
           headers: { Authorization: api_key },
         });
         if (!response.ok) throw new Error("Failed to fetch data");
-        const teams = await response.json();
-        setTeams(teams.data);
-        console.log(teams);
+        const data = await response.json();
+        setTeams(data.data);
+        console.log(data);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -31,7 +31,19 @@ const App = () => {
       <h1>NBA STATS APP</h1>
       <div className="teams-container">
         {teams.slice(0, 30).map((team) => (
-          <div key={team.id}>{team.name}</div>
+          <div className="team" key={team.id}>
+            <h3 className="team-name">{team.full_name}</h3>
+            <img
+              className="img-logo"
+              src={
+                team.abbreviation === "NOP"
+                  ? "https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/no.png&h=200&w=200"
+                  : team.abbreviation === "UTA"
+                    ? "https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/utah.png&h=200&w=200"
+                    : `https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/${team.abbreviation}.png&h=200&w=200`
+              }
+            ></img>
+          </div>
         ))}
       </div>
     </div>
