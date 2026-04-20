@@ -13,6 +13,7 @@ const Header = ({ filter, setFilter, setConference }) => {
           }}
         />
         <button className="btn" onClick={() => setConference("All")}>
+          {" "}
           All
         </button>
         <button className="btn" onClick={() => setConference("East")}>

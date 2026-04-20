@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Header from "./components/Header.jsx";
+import DisplayTeams from "./components/DisplayTeams.jsx";
 const App = () => {
   const API_URL = "https://api.balldontlie.io/v1/teams";
   const api_key = import.meta.env.VITE_API_KEY;
@@ -45,19 +46,7 @@ const App = () => {
 
       <div className="teams-container">
         {filteredTeams.map((team) => (
-          <div className="team" key={team.id}>
-            <h3 className="team-name">{team.full_name}</h3>
-            <img
-              className="img-logo"
-              src={
-                team.abbreviation === "NOP"
-                  ? "https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/no.png&h=200&w=200"
-                  : team.abbreviation === "UTA"
-                    ? "https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/utah.png&h=200&w=200"
-                    : `https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/${team.abbreviation}.png&h=200&w=200`
-              }
-            ></img>
-          </div>
+          <DisplayTeams key={team.id} team={team} />
         ))}
       </div>
     </div>
