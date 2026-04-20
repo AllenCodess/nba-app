@@ -33,6 +33,7 @@ body {
   height: 230px;
   width: 210px;
   text-align: center;
+  background-color: #0e2131;
 }
 
 .team-name {
@@ -41,4 +42,11 @@ body {
 
 .img-logo {
   width: 150px;
+}
+
+.search-bar {
+  background-color: #e6e6e6;
+  border-radius: 5px;
+  padding: 0.2rem 0.8rem;
+  margin-top: 1rem;
 }

@@ -6,6 +6,7 @@ const App = () => {
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [filter, setFilter] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,11 +27,25 @@ const App = () => {
     fetchData();
   }, []);
 
+  const filteredTeams = teams.slice(0, 30).filter((team) => {
+    return team.name.toLowerCase().includes(filter.toLowerCase());
+  });
+
   return (
     <div className="container">
       <h1>NBA STATS APP</h1>
+      <div className="filter">
+        <input
+          className="search-bar"
+          type="text"
+          value={filter}
+          onChange={(e) => {
+            setFilter(e.target.value);
+          }}
+        />
+      </div>
       <div className="teams-container">
-        {teams.slice(0, 30).map((team) => (
+        {filteredTeams.map((team) => (
           <div className="team" key={team.id}>
             <h3 className="team-name">{team.full_name}</h3>
             <img
