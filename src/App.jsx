@@ -7,6 +7,7 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [filter, setFilter] = useState("");
+  const [conference, setConference] = useState("All");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,8 +28,14 @@ const App = () => {
     fetchData();
   }, []);
 
+  if (loading) return <p>Loading...</p>;
+
+  if (error) return <p>{error}</p>;
+
   const filteredTeams = teams.slice(0, 30).filter((team) => {
-    return team.name.toLowerCase().includes(filter.toLowerCase());
+    const matchesSearch = team.name.toLowerCase().includes(filter.toLowerCase());
+    const matchesConference = conference === "All" || team.conference === conference;
+    return matchesSearch && matchesConference;
   });
 
   return (
@@ -39,10 +46,20 @@ const App = () => {
           className="search-bar"
           type="text"
           value={filter}
+          placeholder="Search Team Name"
           onChange={(e) => {
             setFilter(e.target.value);
           }}
         />
+        <button className="btn" onClick={() => setConference("All")}>
+          All
+        </button>
+        <button className="btn" onClick={() => setConference("East")}>
+          East
+        </button>
+        <button className="btn" onClick={() => setConference("West")}>
+          West
+        </button>
       </div>
       <div className="teams-container">
         {filteredTeams.map((team) => (
