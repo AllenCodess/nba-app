@@ -21,3 +21,12 @@ Users can do the following:
 - CSS
 - JavaScript
 - React
+
+## Setup
+
+```bash
+git clone {repo url}
+cd {repo name}
+npm install
+npm run dev
+```

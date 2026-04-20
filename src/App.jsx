@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Header from "./components/Header.jsx";
 const App = () => {
   const API_URL = "https://api.balldontlie.io/v1/teams";
   const api_key = import.meta.env.VITE_API_KEY;
@@ -40,27 +41,8 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1>NBA STATS APP</h1>
-      <div className="filter">
-        <input
-          className="search-bar"
-          type="text"
-          value={filter}
-          placeholder="Search Team Name"
-          onChange={(e) => {
-            setFilter(e.target.value);
-          }}
-        />
-        <button className="btn" onClick={() => setConference("All")}>
-          All
-        </button>
-        <button className="btn" onClick={() => setConference("East")}>
-          East
-        </button>
-        <button className="btn" onClick={() => setConference("West")}>
-          West
-        </button>
-      </div>
+      <Header filter={filter} setConference={setConference} setFilter={setFilter} />
+
       <div className="teams-container">
         {filteredTeams.map((team) => (
           <div className="team" key={team.id}>
