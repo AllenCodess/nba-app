@@ -23,7 +23,6 @@ const HomePage = () => {
         if (!response.ok) throw new Error("Failed to fetch data");
         const data = await response.json();
         setTeams(data.data);
-        console.log(data);
       } catch (err) {
         setError(err.message);
       } finally {

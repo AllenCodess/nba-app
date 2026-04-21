@@ -65,6 +65,29 @@ body {
 
 /* TeamPage */
 
+.teampage-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .teampage-img {
   width: 300px;
+}
+
+.team-information-text {
+  font-size: 20px;
+  padding: 0.2rem 0;
+}
+
+.teampage-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 3rem;
+  background-color: #0e2131;
+  width: 700px;
+  margin: 4rem auto 0;
+  border-radius: 10px;
+  border: solid 1px white;
 }

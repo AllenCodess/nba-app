@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router";
-import HomePage from "./home";
 
 const TeamPage = () => {
   const { id } = useParams();
   const API_URL = `https://api.balldontlie.io/v1/teams/${id}`;
   const api_key = import.meta.env.VITE_API_KEY;
 
-  const [teams, setTeams] = useState("");
+  const [teams, setTeams] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -18,10 +17,10 @@ const TeamPage = () => {
         const response = await fetch(`${API_URL}`, {
           headers: { Authorization: api_key },
         });
-        if (!response.ok) throw new Error("Failed to fetch data");
+        if (!response.ok)
+          throw new Error(`Failed to fetch ${response.status} ${response.statusText}`);
         const data = await response.json();
         setTeams(data.data);
-        console.log(data);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -31,13 +30,42 @@ const TeamPage = () => {
     fetchData();
   }, []);
 
+  const API_URL_PLAYERS = `https://api.balldontlie.io/v1/players/?team_ids[]=${id}`;
+
+  const [players, setPlayers] = useState(null);
+
+  useEffect(() => {
+    const fetchDataPlayer = async () => {
+      try {
+        const response = await fetch(`${API_URL_PLAYERS}`, {
+          headers: { Authorization: api_key },
+        });
+        if (!response.ok)
+          throw new Error(`Failed to fetch ${response.status} ${response.statusText}`);
+        const data = await response.json();
+        setPlayers(data.data);
+        console.log(data.data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchDataPlayer();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
+
   return (
     <div className="container">
-      Team Page {teams.full_name}
-      <Link style={{ textDecoration: "none", color: "lightblue" }} to={"/"}>
-        Back Home
-      </Link>
-      <div className="team-container">
+      <div className="teampage-heading">
+        <h1 className="teampage-header">{teams.full_name} Team Page</h1>
+        <Link style={{ textDecoration: "none", color: "lightblue" }} to={"/"}>
+          Back Home
+        </Link>
+      </div>
+      <div className="teampage-container">
         <div className="team-img-container">
           <img
             className="teampage-img"
@@ -51,9 +79,46 @@ const TeamPage = () => {
             alt={`${teams.full_name}`}
           ></img>
         </div>
+        <div className="team-information">
+          <p className="team-information-text">Abbreviation: {teams.abbreviation}</p>
+          <p className="team-information-text">City: {teams.city}</p>
+          <p className="team-information-text">Conference: {teams.conference}</p>
+          <p className="team-information-text">Division: {teams.division}</p>
+          <p className="team-information-text">Full Name: {teams.full_name}</p>
+        </div>
       </div>
     </div>
   );
 };
 
 export default TeamPage;
+
+const TeamPagePlayers = () => {
+  const { id } = useParams();
+  const API_URL_PLAYERS = `https://api.balldontlie.io/v1/players/?team_ids[]=${id}`;
+  const api_key = import.meta.env.VITE_API_KEY;
+
+  const [players, setPlayers] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchDataPlayer = async () => {
+      try {
+        const response = await fetch(`${API_URL_PLAYERS}`, {
+          headers: { Authorization: api_key },
+        });
+        if (!response.ok)
+          throw new Error(`Failed to fetch ${response.status} ${response.statusText}`);
+        const data = await response.json();
+        setPlayers(data.data);
+        console.log(data.data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchDataPlayer();
+  }, []);
+};
