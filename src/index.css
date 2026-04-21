@@ -91,3 +91,8 @@ body {
   border-radius: 10px;
   border: solid 1px white;
 }
+
+.players-container {
+  width: 300px;
+  height: 200px;
+}

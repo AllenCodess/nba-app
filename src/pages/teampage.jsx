@@ -31,8 +31,7 @@ const TeamPage = () => {
   }, []);
 
   const API_URL_PLAYERS = `https://api.balldontlie.io/v1/players/?team_ids[]=${id}`;
-
-  const [players, setPlayers] = useState(null);
+  const [players, setPlayers] = useState([]);
 
   useEffect(() => {
     const fetchDataPlayer = async () => {
@@ -87,38 +86,17 @@ const TeamPage = () => {
           <p className="team-information-text">Full Name: {teams.full_name}</p>
         </div>
       </div>
+      <div className="players-container">
+        {players.map((player) => (
+          <div key={player.id}>
+            <p>
+              {player.first_name} {player.last_name}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
 export default TeamPage;
-
-const TeamPagePlayers = () => {
-  const { id } = useParams();
-  const API_URL_PLAYERS = `https://api.balldontlie.io/v1/players/?team_ids[]=${id}`;
-  const api_key = import.meta.env.VITE_API_KEY;
-
-  const [players, setPlayers] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchDataPlayer = async () => {
-      try {
-        const response = await fetch(`${API_URL_PLAYERS}`, {
-          headers: { Authorization: api_key },
-        });
-        if (!response.ok)
-          throw new Error(`Failed to fetch ${response.status} ${response.statusText}`);
-        const data = await response.json();
-        setPlayers(data.data);
-        console.log(data.data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchDataPlayer();
-  }, []);
-};
