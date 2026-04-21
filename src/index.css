@@ -62,3 +62,9 @@ body {
   border-radius: 5px;
   font-family: "Outfit", sans-serif;
 }
+
+/* TeamPage */
+
+.teampage-img {
+  width: 300px;
+}

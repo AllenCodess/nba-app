@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router";
+import HomePage from "./home";
 
 const TeamPage = () => {
   const { id } = useParams();
@@ -31,12 +32,27 @@ const TeamPage = () => {
   }, []);
 
   return (
-    <>
+    <div className="container">
       Team Page {teams.full_name}
       <Link style={{ textDecoration: "none", color: "lightblue" }} to={"/"}>
         Back Home
       </Link>
-    </>
+      <div className="team-container">
+        <div className="team-img-container">
+          <img
+            className="teampage-img"
+            src={
+              `${teams.abbreviation}` === "NOP"
+                ? "https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/no.png&h=200&w=200"
+                : `${teams.abbreviation}` === "UTA"
+                  ? "https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/utah.png&h=200&w=200"
+                  : `https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/${teams.abbreviation}.png&h=200&w=200`
+            }
+            alt={`${teams.full_name}`}
+          ></img>
+        </div>
+      </div>
+    </div>
   );
 };
 
