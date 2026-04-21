@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router";
+import { Link } from "react-router";
 
 const TeamPage = () => {
-  const API_URL = "https://api.balldontlie.io/v1/players";
+  const { id } = useParams();
+  const API_URL = `https://api.balldontlie.io/v1/teams/${id}`;
   const api_key = import.meta.env.VITE_API_KEY;
 
-  const [player, setPlayer] = useState("");
+  const [teams, setTeams] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -16,7 +19,7 @@ const TeamPage = () => {
         });
         if (!response.ok) throw new Error("Failed to fetch data");
         const data = await response.json();
-        setPlayer(data.data);
+        setTeams(data.data);
         console.log(data);
       } catch (err) {
         setError(err.message);
@@ -27,7 +30,14 @@ const TeamPage = () => {
     fetchData();
   }, []);
 
-  return <>Team Page</>;
+  return (
+    <>
+      Team Page {teams.full_name}
+      <Link style={{ textDecoration: "none", color: "lightblue" }} to={"/"}>
+        Back Home
+      </Link>
+    </>
+  );
 };
 
 export default TeamPage;
