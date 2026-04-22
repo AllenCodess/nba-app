@@ -30,7 +30,7 @@ const TeamPage = () => {
     fetchData();
   }, []);
 
-  const API_URL_PLAYERS = `https://api.balldontlie.io/v1/players/?team_ids[]=${id}&per_page=10`;
+  const API_URL_PLAYERS = `https://api.balldontlie.io/v1/players/?team_ids[]=${id}&per_page=9`;
   const [players, setPlayers] = useState([]);
 
   useEffect(() => {
@@ -89,9 +89,11 @@ const TeamPage = () => {
       <div className="players-container">
         {players.map((player) => (
           <div key={player.id}>
-            <p>
-              {player.first_name} {player.last_name}
-            </p>
+            <Link to={`/players/${player.id}`}>
+              <p>
+                {player.first_name} {player.last_name}
+              </p>
+            </Link>
           </div>
         ))}
       </div>
