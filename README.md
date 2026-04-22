@@ -14,6 +14,7 @@ Users can do the following:
 
 - Search for a specific team
 - Filter teams by conference
+- View team details and roster by clicking a team
 
 ## Technologies Used
 
@@ -21,6 +22,10 @@ Users can do the following:
 - CSS
 - JavaScript
 - React
+
+## Limitations
+
+Because of the free tier api on [balldontlie.io](https://www.balldontlie.io) 429 rate limiting error tends to happen.
 
 ## Setup
 

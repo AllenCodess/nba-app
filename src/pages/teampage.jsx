@@ -43,7 +43,6 @@ const TeamPage = () => {
           throw new Error(`Failed to fetch ${response.status} ${response.statusText}`);
         const data = await response.json();
         setPlayers(data.data);
-        console.log(data.data);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -86,6 +85,7 @@ const TeamPage = () => {
           <p className="team-information-text">Full Name: {teams.full_name}</p>
         </div>
       </div>
+      <h2 className="playerName-heading">Players</h2>
       <div className="players-container">
         {players.map((player) => (
           <div key={player.id}>
