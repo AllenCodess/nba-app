@@ -92,6 +92,14 @@ body {
   border: solid 1px white;
 }
 
+.playerNamesInsideTeamPage {
+  color: white;
+}
+
+.playerNamesInsideTeamPage:hover {
+  color: lightblue;
+}
+
 .players-container {
   border: solid 1px white;
   background-color: #0e2131;

@@ -2,7 +2,6 @@ import DisplayTeams from "../components/DisplayTeams";
 import Header from "../components/Header";
 
 import { useState, useEffect } from "react";
-import TeamPage from "./teampage";
 
 const HomePage = () => {
   const API_URL = "https://api.balldontlie.io/v1/teams";

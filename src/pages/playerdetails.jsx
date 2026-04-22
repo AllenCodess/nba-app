@@ -21,7 +21,6 @@ const PlayerDetails = () => {
           throw new Error(`Failed to fetch ${response.status} ${response.statusText}`);
         const data = await response.json();
         setPlayer(data.data[0]);
-        console.log(data.data);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -30,6 +29,9 @@ const PlayerDetails = () => {
     };
     fetchData();
   }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
 
   return (
     <div className="container">
@@ -43,29 +45,16 @@ const PlayerDetails = () => {
         {player && (
           <>
             <p className="playerdetails-labels">
-              {`
-            Name: ${player.first_name} ${player.last_name}`}
+              Name: {player.first_name} {player.last_name}
             </p>
+            <p className="playerdetails-labels">Height: {player.height}</p>
+            <p className="playerdetails-labels">Position: {player.position}</p>
+            <p className="playerdetails-labels">College: {player.college}</p>
             <p className="playerdetails-labels">
-              {`
-            Height: ${player.height}`}
+              Drafted: Round {player.draft_round} Pick {player.draft_number} Year{" "}
+              {player.draft_year}
             </p>
-            <p className="playerdetails-labels">
-              {`
-            Position: ${player.position}`}
-            </p>
-            <p className="playerdetails-labels">
-              {`
-            College: ${player.college}`}
-            </p>
-            <p className="playerdetails-labels">
-              {`
-            Drafted: Pick ${player.draft_number} Round ${player.draft_round} Year ${player.draft_year}`}
-            </p>
-            <p className="playerdetails-labels">
-              {`
-            Team: ${player.team.full_name}`}
-            </p>
+            <p className="playerdetails-labels">Team: {player.team.full_name}</p>
           </>
         )}
       </div>

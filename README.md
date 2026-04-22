@@ -15,6 +15,7 @@ Users can do the following:
 - Search for a specific team
 - Filter teams by conference
 - View team details and roster by clicking a team
+- Clicking a Player from the teams page will show player details
 
 ## Technologies Used
 
