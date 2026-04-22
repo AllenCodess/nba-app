@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import { Link } from "react-router";
 
 const PlayerDetails = () => {
   const { id } = useParams();
@@ -32,7 +33,12 @@ const PlayerDetails = () => {
 
   return (
     <div className="container">
-      <h1>Player Details</h1>
+      <div className="playerdetails-header-container">
+        <h1>Player Details</h1>
+        <Link style={{ textDecoration: "none", color: "lightblue" }} to={"/"}>
+          Back Home
+        </Link>
+      </div>
       <div className="player-details-container">
         {player && (
           <>

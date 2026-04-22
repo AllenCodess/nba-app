@@ -111,6 +111,7 @@ body {
   margin-bottom: -3rem;
 }
 
+/* Players Details */
 .player-details-container {
   border: 1px solid white;
   background-color: #0e2131;
@@ -118,9 +119,16 @@ body {
   padding: 2rem;
   width: 500px;
   border-radius: 10px;
+  margin: 3rem auto 0;
 }
 
 .playerdetails-labels {
   font-size: 20px;
   font-weight: 600;
+}
+
+.playerdetails-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
