@@ -30,7 +30,7 @@ const TeamPage = () => {
     fetchData();
   }, []);
 
-  const API_URL_PLAYERS = `https://api.balldontlie.io/v1/players/?team_ids[]=${id}&per_page=5`;
+  const API_URL_PLAYERS = `https://api.balldontlie.io/v1/players/?team_ids[]=${id}&per_page=10`;
   const [players, setPlayers] = useState([]);
 
   useEffect(() => {

@@ -8,7 +8,7 @@
 
 ## Overview
 
-This project is an NBA Stats Application that displays teams, players, and games using the [balldontlie.io](https://www.balldontlie.io) free tier API.
+This project is an NBA Application that displays teams and players information using the [balldontlie.io](https://www.balldontlie.io) free tier API.
 
 Users can do the following:
 

@@ -1,7 +1,7 @@
 const Header = ({ filter, setFilter, setConference }) => {
   return (
     <>
-      <h1>NBA STATS APP</h1>
+      <h1>NBA APP</h1>
       <div className="filter">
         <input
           className="search-bar"
