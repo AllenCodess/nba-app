@@ -6,6 +6,7 @@ const PlayerSearch = () => {
   const [searchedPlayer, setSearchedPlayer] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [searched, setSearched] = useState(false);
 
   const api_key = import.meta.env.VITE_API_KEY;
 
@@ -14,9 +15,9 @@ const PlayerSearch = () => {
 
     setLoading(true);
     setError(null);
+    setSearched(true);
 
     const parts = query.trim().split(" ");
-    console.log(query);
     const firstName = parts[0];
     const lastName = parts[1];
 
@@ -26,10 +27,12 @@ const PlayerSearch = () => {
       const response = await fetch(`${API_URL}`, {
         headers: { Authorization: api_key },
       });
+
       if (!response.ok)
         throw new Error(
           `Request failed (${response.status}: ${response.statusText}). If you're seeing a 429, the free tier rate limit has been hit — please wait 30 seconds and try again.`,
         );
+
       const data = await response.json();
       setSearchedPlayer(data.data);
     } catch (err) {
@@ -78,6 +81,9 @@ const PlayerSearch = () => {
               </div>
             ))}
           </div>
+        )}
+        {searchedPlayer.length === 0 && !loading && searched && (
+          <p>Sorry, No Results Found for "{query}"</p>
         )}
       </div>
     </div>

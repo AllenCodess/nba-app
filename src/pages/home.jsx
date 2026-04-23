@@ -47,7 +47,7 @@ const HomePage = () => {
   return (
     <div className="container">
       <Header filter={filter} setConference={setConference} setFilter={setFilter} />
-
+      {filteredTeams.length === 0 && <p>No Teams Found.</p>}
       <div className="teams-container">
         {filteredTeams.map((team) => (
           <DisplayTeams key={team.id} team={team} />
