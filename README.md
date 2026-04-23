@@ -10,26 +10,20 @@
 
 ## Overview
 
-This project is an NBA Application that displays teams and players information using the [balldontlie.io](https://www.balldontlie.io) free tier API.
-
-Users can do the following:
-
-- Search for a specific team on home page
-- Search for a specific player on players page
-- Filter teams by conference
-- View team details and roster by clicking a team
-- Clicking a Player from the teams page will show player details
+A React application for exploring NBA teams and players using the [balldontlie.io](https://www.balldontlie.io) API. Browse all 30 teams, filter by conference, view full rosters, and look up individual player details.
 
 ## Technologies Used
 
-- HTML
-- CSS
-- JavaScript
 - React
+- React Router
+- JavaScript (ES6+)
+- CSS
+- Vite
+- balldontlie.io API
 
 ## Limitations
 
-Because of the free tier api on [balldontlie.io](https://www.balldontlie.io) 429 rate limiting error tends to happen.
+This app uses the balldontlie.io free tier, which has rate limits. If results don't load immediately, wait a moment and try again.
 
 ## Setup
 
