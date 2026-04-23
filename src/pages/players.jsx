@@ -3,11 +3,10 @@ import { Link } from "react-router";
 
 const PlayerSearch = () => {
   const [query, setQuery] = useState("");
-  const [searchedPlayer, setSearchedPlayer] = useState([]); // why use an array right here?
+  const [searchedPlayer, setSearchedPlayer] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  //   const API_URL = `https://api.balldontlie.io/v1/players/?search=${query}`;
   const api_key = import.meta.env.VITE_API_KEY;
 
   const handleSearch = async () => {
@@ -40,11 +39,17 @@ const PlayerSearch = () => {
 
   return (
     <div className="container">
+      <div className="playerdetails-header-container">
+        <h1>Player Search</h1>
+        <Link style={{ textDecoration: "none", color: "lightblue" }} to={"/"}>
+          Back Home
+        </Link>
+      </div>
       <div className="player-search-bar">
         <input
           type="text"
           className="search-bar"
-          placeholder="Search Player"
+          placeholder="Search Player Full Name"
           value={query}
           onChange={(e) => {
             setQuery(e.target.value);
@@ -53,6 +58,23 @@ const PlayerSearch = () => {
         <button className="btn" onClick={handleSearch}>
           SEARCH
         </button>
+        <div className="player-search-container">
+          {searchedPlayer.map((player) => (
+            <div key={player.id}>
+              <p className="playerdetails-labels">
+                Name: {player.first_name} {player.last_name}
+              </p>
+              <p className="playerdetails-labels">Height: {player.height}</p>
+              <p className="playerdetails-labels">Position: {player.position}</p>
+              <p className="playerdetails-labels">College: {player.college}</p>
+              <p className="playerdetails-labels">
+                Drafted: Round {player.draft_round} Pick {player.draft_number} Year{" "}
+                {player.draft_year}
+              </p>
+              <p className="playerdetails-labels">Team: {player.team.full_name}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -140,3 +140,15 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+
+/* Player Search */
+
+.player-search-container {
+  border: 1px solid white;
+  background-color: #0e2131;
+  margin-top: 2rem;
+  padding: 2rem;
+  width: 500px;
+  border-radius: 10px;
+  margin: 3rem auto 0;
+}
