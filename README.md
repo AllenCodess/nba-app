@@ -2,6 +2,8 @@
 
 **Status:** In Progress
 
+[LIVE DEMO](https://allennba.netlify.app/)
+
 ## Screenshot
 
 ![Screenshot](public/nba-app.png)
