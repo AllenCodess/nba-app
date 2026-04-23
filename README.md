@@ -1,4 +1,4 @@
-# NBA Stats App
+# NBA App
 
 **Status:** In Progress
 
