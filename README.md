@@ -6,7 +6,7 @@
 
 ## Screenshot
 
-![Screenshot](public/nba-app.png)
+![Screenshot](public/nbaapp.png)
 
 ## Overview
 
