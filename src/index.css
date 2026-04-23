@@ -20,6 +20,12 @@ body {
 
 /* Team Section */
 
+.flex-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .teams-container {
   margin-top: 6rem;
   display: grid;
@@ -64,6 +70,11 @@ body {
 }
 
 /* TeamPage */
+
+.links-flex {
+  display: flex;
+  column-gap: 30px;
+}
 
 .teampage-heading {
   display: flex;

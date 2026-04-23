@@ -18,7 +18,9 @@ const PlayerDetails = () => {
           headers: { Authorization: api_key },
         });
         if (!response.ok)
-          throw new Error(`Failed to fetch ${response.status} ${response.statusText}`);
+          throw new Error(
+            `Request failed (${response.status}: ${response.statusText}). If you're seeing a 429, the free tier rate limit has been hit — please wait 30 seconds and try again.`,
+          );
         const data = await response.json();
         setPlayer(data.data[0]);
       } catch (err) {
@@ -37,9 +39,14 @@ const PlayerDetails = () => {
     <div className="container">
       <div className="playerdetails-header-container">
         <h1>Player Details</h1>
-        <Link style={{ textDecoration: "none", color: "lightblue" }} to={"/"}>
-          Back Home
-        </Link>
+        <div className="links-flex">
+          <Link style={{ textDecoration: "none", color: "lightblue" }} to={"/"}>
+            Back Home
+          </Link>
+          <Link style={{ textDecoration: "none", color: "lightblue" }} to={"/players"}>
+            Players Search
+          </Link>
+        </div>
       </div>
       <div className="player-details-container">
         {player && (

@@ -19,7 +19,10 @@ const HomePage = () => {
         const response = await fetch(`${API_URL}`, {
           headers: { Authorization: api_key },
         });
-        if (!response.ok) throw new Error("Failed to fetch data");
+        if (!response.ok)
+          throw new Error(
+            `Request failed (${response.status}: ${response.statusText}). If you're seeing a 429, the free tier rate limit has been hit — please wait 30 seconds and try again.`,
+          );
         const data = await response.json();
         setTeams(data.data);
       } catch (err) {

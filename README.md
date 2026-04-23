@@ -12,7 +12,8 @@ This project is an NBA Application that displays teams and players information u
 
 Users can do the following:
 
-- Search for a specific team
+- Search for a specific team on home page
+- Search for a specific player on players page
 - Filter teams by conference
 - View team details and roster by clicking a team
 - Clicking a Player from the teams page will show player details

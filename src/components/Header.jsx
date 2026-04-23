@@ -1,7 +1,14 @@
+import { Link } from "react-router";
+
 const Header = ({ filter, setFilter, setConference }) => {
   return (
     <>
-      <h1>NBA APP</h1>
+      <div className="flex-header">
+        <h1>NBA APP</h1>
+        <Link style={{ textDecoration: "none", color: "lightblue" }} to={"/players"}>
+          Players Search
+        </Link>
+      </div>
       <div className="filter">
         <input
           className="search-bar"

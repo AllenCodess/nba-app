@@ -40,7 +40,9 @@ const TeamPage = () => {
           headers: { Authorization: api_key },
         });
         if (!response.ok)
-          throw new Error(`Failed to fetch ${response.status} ${response.statusText}`);
+          throw new Error(
+            `Request failed (${response.status}: ${response.statusText}). If you're seeing a 429, the free tier rate limit has been hit — please wait 30 seconds and try again.`,
+          );
         const data = await response.json();
         setPlayers(data.data);
       } catch (err) {
@@ -59,9 +61,14 @@ const TeamPage = () => {
     <div className="container">
       <div className="teampage-heading">
         <h1 className="teampage-header">{teams.full_name} Team Page</h1>
-        <Link style={{ textDecoration: "none", color: "lightblue" }} to={"/"}>
-          Back Home
-        </Link>
+        <div className="links-flex">
+          <Link style={{ textDecoration: "none", color: "lightblue" }} to={"/"}>
+            Back Home
+          </Link>
+          <Link style={{ textDecoration: "none", color: "lightblue" }} to={"/players"}>
+            Players Search
+          </Link>
+        </div>
       </div>
       <div className="teampage-container">
         <div className="team-img-container">
@@ -86,6 +93,7 @@ const TeamPage = () => {
         </div>
       </div>
       <h2 className="playerName-heading">Players</h2>
+
       <div className="players-container">
         {players.map((player) => (
           <div key={player.id}>
