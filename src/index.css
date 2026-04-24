@@ -58,6 +58,10 @@ body {
   margin-top: 1rem;
 }
 
+.btn-container {
+  margin-top: 1rem;
+}
+
 .btn {
   padding: 0.2rem 0.8rem;
   font-weight: 600;
@@ -162,4 +166,59 @@ body {
   width: 500px;
   border-radius: 10px;
   margin: 3rem auto 0;
+}
+
+/* Media Queries */
+
+@media (max-width: 500px) {
+  .container {
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 1.4rem 0;
+  }
+
+  .search-bar {
+    display: block;
+    width: 80%;
+    margin: 0.8rem auto;
+  }
+  .btn-container {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .btn {
+    padding: 0.2rem 0.8rem;
+    font-weight: 600;
+    background-color: #666996;
+    border: 1px solid white;
+    color: white;
+    width: 20%;
+    margin: 0 0.3rem;
+    border-radius: 5px;
+    font-family: "Outfit", sans-serif;
+  }
+  .teams-container {
+    width: 90%;
+    margin: 3rem auto;
+    grid-template-columns: auto auto auto;
+  }
+
+  .team {
+    border: solid white 1px;
+    border-radius: 20px;
+    height: 100%;
+    width: 90%;
+    text-align: center;
+    background-color: #0e2131;
+  }
+
+  .team-name {
+    margin: 0.5rem 0.6rem;
+    color: white;
+  }
+
+  .img-logo {
+    width: 50%;
+  }
 }

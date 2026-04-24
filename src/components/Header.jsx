@@ -19,16 +19,18 @@ const Header = ({ filter, setFilter, setConference }) => {
             setFilter(e.target.value);
           }}
         />
-        <button className="btn" onClick={() => setConference("All")}>
-          {" "}
-          All
-        </button>
-        <button className="btn" onClick={() => setConference("East")}>
-          East
-        </button>
-        <button className="btn" onClick={() => setConference("West")}>
-          West
-        </button>
+        <div className="btn-container">
+          <button className="btn" onClick={() => setConference("All")}>
+            {" "}
+            All
+          </button>
+          <button className="btn" onClick={() => setConference("East")}>
+            East
+          </button>
+          <button className="btn" onClick={() => setConference("West")}>
+            West
+          </button>
+        </div>
       </div>
     </>
   );
