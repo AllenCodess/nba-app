@@ -1,6 +1,6 @@
 # NBA App
 
-**Status:** In Progress
+**Status:** Live
 
 [LIVE DEMO](https://allennba.netlify.app/)
 
