@@ -113,6 +113,7 @@ body {
 
 .playerNamesInsideTeamPage {
   color: white;
+  padding: 0.3rem 0;
 }
 
 .playerNamesInsideTeamPage:hover {
@@ -228,5 +229,49 @@ body {
 
   .img-logo {
     width: 50%;
+  }
+
+  /* Team Page Mobile Response */
+
+  .teampage-heading {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .links-flex {
+    justify-content: center;
+  }
+
+  .teampage-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 3%;
+    background-color: #0e2131;
+    width: 90%;
+    margin: 4rem auto 0;
+    border-radius: 10px;
+    border: solid 1px white;
+  }
+
+  .teampage-img {
+    width: 80%;
+  }
+
+  .team-information-text {
+    font-size: 14px;
+  }
+
+  .playerNamesInsideTeamPage {
+    padding: 0.3rem 0;
+  }
+
+  .players-container {
+    grid-template-columns: auto auto auto;
+    width: 90%;
+    margin: 4rem auto 0;
+    font-size: 14px;
   }
 }

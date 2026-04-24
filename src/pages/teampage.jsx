@@ -97,12 +97,8 @@ const TeamPage = () => {
       <div className="players-container">
         {players.map((player) => (
           <div key={player.id}>
-            <Link
-              className="playerNamesInsideTeamPage"
-              to={`/players/${player.id}`}
-              style={{ textDecoration: "none" }}
-            >
-              <p>
+            <Link className="" to={`/players/${player.id}`} style={{ textDecoration: "none" }}>
+              <p className="playerNamesInsideTeamPage">
                 {player.first_name} {player.last_name}
               </p>
             </Link>
