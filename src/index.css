@@ -26,6 +26,10 @@ body {
   align-items: center;
 }
 
+.filter {
+  display: flex;
+}
+
 .teams-container {
   margin-top: 6rem;
   display: grid;
@@ -179,7 +183,7 @@ body {
 
   .search-bar {
     display: block;
-    width: 80%;
+    width: 65%;
     margin: 0.8rem auto;
   }
   .btn-container {
@@ -197,6 +201,10 @@ body {
     margin: 0 0.3rem;
     border-radius: 5px;
     font-family: "Outfit", sans-serif;
+  }
+
+  .filter {
+    display: block;
   }
   .teams-container {
     width: 90%;
