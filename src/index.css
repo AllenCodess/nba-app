@@ -274,4 +274,23 @@ body {
     margin: 4rem auto 0;
     font-size: 14px;
   }
+
+  /* Player Details */
+
+  .playerdetails-header-container {
+    display: block;
+    text-align: center;
+  }
+
+  .player-details-container {
+    width: 90%;
+  }
+
+  .search-btn-container {
+    text-align: center;
+  }
+
+  .player-search-container {
+    width: 90%;
+  }
 }

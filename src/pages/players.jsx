@@ -60,9 +60,11 @@ const PlayerSearch = () => {
             setQuery(e.target.value);
           }}
         />
-        <button className="btn" onClick={handleSearch}>
-          SEARCH
-        </button>
+        <div className="search-btn-container">
+          <button className="btn" onClick={handleSearch}>
+            SEARCH
+          </button>
+        </div>
         {searchedPlayer.length > 0 && (
           <div className="player-search-container">
             {searchedPlayer.map((player) => (
