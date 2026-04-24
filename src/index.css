@@ -216,13 +216,13 @@ body {
     border: solid white 1px;
     border-radius: 20px;
     height: 100%;
-    width: 90%;
+    width: 95%;
     text-align: center;
     background-color: #0e2131;
   }
 
   .team-name {
-    margin: 0.5rem 0.6rem;
+    margin: 0.5rem 0.4rem;
     color: white;
   }
 
